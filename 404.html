@@ -1,0 +1,53 @@
+<html>
+<script type="text/javascript">
+
+
+// Browser Language Redirect script
+// copyright 3rd January 2006, Stephen Chapman
+// permission to use this Javascript on your web page is granted
+// provided that all of the code in this script (with the sole exception
+// of the langcodes array entries) is used without any alteration
+
+
+
+var dest = window.location.href; 
+
+
+//alert(dest.substr(0,dest.lastIndexOf('.')) + '-' + ndest + dest.substr(dest.lastIndexOf('.')));
+
+//if(dest.indexOf("/r")>0)
+//{
+	//dest=dest.substr(0,dest.lastIndexOf('.')) + '-' + ndest + dest.substr(dest.lastIndexOf('.'));
+  
+	
+//} else 
+
+
+var p=(window.location.pathname + window.location.search).replace("/","");
+
+	    
+	var d;
+	var r1=p.indexOf(" ");
+	var r2=p.indexOf("%20");
+	if(r1>0) {d=p.substr(0,r1-1);  } 
+	else if(r2>0) {d=p.substr(0,r2);  } 	
+	else d=p ;
+	
+	var ve=parseInt(d.substr(d.indexOf("_")+1));
+	
+	if(ve>=320){
+		location=dest.replace(p,"?id="+d);
+	}
+	
+
+
+ 
+
+
+
+
+	
+
+</script>
+올바른 경로로 접속했는지 확인해주세요.<br>
+</html>
