@@ -26,7 +26,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
 		
 	
 
-		<div class="breadcrumbs">정보를 읽고 있습니다..</div>
+		<div id="bread" class="breadcrumbs">정보를 읽고 있습니다..</div>
 
 		<ul class="data"></ul>
 
@@ -207,12 +207,37 @@ $.cleanData = (function(orig) {
         } else{
             var hour = (spantima ) / (60 * 60);
             var minute = (spantima%3600) / 60;
-            str=( hour>=1?( parseInt( hour)+"시간 ") : "") +parseInt(minute)+"분간유지";
+            str=( hour>=1?( parseInt( hour)+"시간 ") : "") +parseInt(minute)+"분후 중지됨";
 
         }
 
 	return str;
  }
+
+ function openurl(SCHEME_FOR_TEST){
+
+if(inapp){
+		var iframe = document.createElement('IFRAME'),
+						self = this;
+					self.isPrepared=false;
+					self.isNotSupportedFallbackURL=false;
+					iframe.style.border = 'none';
+						iframe.style.width = '1px';
+						iframe.style.height = '1px';
+					
+					
+
+					iframe.src = "intent:googlechrome://navigate?url="+SCHEME_FOR_TEST+"#Intent;end;";
+					
+					document.body.appendChild(iframe);
+	
+	} else {
+	location.href=SCHEME_FOR_TEST;
+	}
+			
+				
+
+}
 
 </script>
 		
