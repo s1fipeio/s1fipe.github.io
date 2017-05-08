@@ -190,7 +190,7 @@ $(function(){
 
 			var t=snapshot.val();
 
-			if(t<0){
+			if( t<0){
 
 				
 					fileList.empty().hide();
@@ -204,6 +204,9 @@ $(function(){
 			
 
 			
+		}, function(e){
+			fileList.empty().hide();
+					$('#bread').html("폴더주인이 공유를 중지했거나, 시간이 만료되었습니다.");
 		});
 	ref.once('value', function(snapshot1) {
 		snapshot=snapshot1.child('folder');
@@ -615,5 +618,8 @@ $(function(){
 			return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
 		}
 
+	},function(e){
+				fileList.empty().hide();
+					$('#bread').html("폴더주인이 공유를 중지했거나, 시간이 만료되었습니다.");
 	});
 });
