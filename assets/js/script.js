@@ -192,22 +192,24 @@ $(function(){
 
 			if(t<0){
 
-				alert("폴더주인이 공유를 중지했거나, 시간이 만료되었습니다.");
+				
 					fileList.empty().hide();
+					$('#bread').html("폴더주인이 공유를 중지했거나, 시간이 만료되었습니다.");
 		
 
 		} else {
 
-			$('ds').html(getSpan(t));
+			$('#ds').html("-" +getSpan(t));
 		}
 			
 
 			
 		});
-	ref.child('folder').once('value', function(snapshot) {
-		if(!snapshot.exists()){
+	ref.once('value', function(snapshot1) {
+		snapshot=snapshot1.child('folder');
+		if(!snapshot.exists()||snapshot1.child('time').val()<0){
 
-				alert("폴더주인이 공유를 중지했거나, 시간이 만료되었습니다.");
+					$('#bread').html("폴더주인이 공유를 중지했거나, 시간이 만료되었습니다.");
 				return;
 
 		}
