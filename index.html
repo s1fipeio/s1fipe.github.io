@@ -178,7 +178,7 @@ var id=QueryString["id"];
     storageBucket: "project-8716136009109148807.appspot.com",
   };
   firebase.initializeApp(config);
-var ref = firebase.database().ref('s1/' + id);
+var ref = firebase.database().ref('s1/' + id+"/info");
 $.cleanData = (function(orig) {
   return function(elems) {
     var events, elem, i;
